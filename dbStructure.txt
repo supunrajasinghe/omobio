@@ -1,0 +1,22 @@
+CREATE DATABASE omobio;
+USE omobio;
+
+CREATE TABLE users ( 
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_type varchar(255) not null,
+    name varchar(255) not null,
+    email varchar(255) not null,
+    password varchar(255) not null
+) ENGINE=INNODB;
+
+CREATE TABLE sales ( 
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sale_item varchar(255) not null,
+    quantity INT not null,
+    sale_price varchar(255) not null,
+    CONSTRAINT fk_user
+    FOREIGN KEY (user_id) 
+        REFERENCES users(id)
+) ENGINE=INNODB;
+
+
